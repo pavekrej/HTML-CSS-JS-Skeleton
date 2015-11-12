@@ -1,0 +1,101 @@
+/*------------------------------------------------------------------
+[Utilities Stylesheet]
+
+Project:	  CSS template - Utilities
+Version:	  1.1
+Last change:  12. 11. 2015
+Creator:	  Pavel Krejčí
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Utilities CSS]
+-------------------------------------------------------------------*/
+a {
+  text-decoration: underline;
+
+  &:hover {
+      text-decoration: none;
+  }
+
+  &:hover, &:focus, &:active {
+      outline: none;
+  }
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-js {
+  .hide-if-no-js {
+    display: none;
+  }
+}
+
+.js {
+  .hide-if-js {
+    display: none;
+  }
+}
+
+img {
+  max-width: none;
+}
+
+.blind {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  left: -4000px;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ie *:focus {
+  outline: none !important;
+}
+
+.t08 {
+  -webkit-transition: all 0.08s linear;
+  -moz-transition: all 0.08s linear;
+  -ms-transition: all 0.08s linear;
+  -o-transition: all 0.08s linear;
+  transition: all 0.08s linear;
+}
+
+.t016 {
+  -webkit-transition: all 0.16s linear;
+  -moz-transition: all 0.16s linear;
+  -ms-transition: all 0.16s linear;
+  -o-transition: all 0.16s linear;
+  transition: all 0.16s linear;
+}
+
+.t026 {
+  -webkit-transition: all 0.26s linear;
+  -moz-transition: all 0.26s linear;
+  -ms-transition: all 0.26s linear;
+  -o-transition: all 0.26s linear;
+  transition: all 0.26s linear;
+}
+
+.t036 {
+  -webkit-transition: all 0.36s linear;
+  -moz-transition: all 0.36s linear;
+  -ms-transition: all 0.36s linear;
+  -o-transition: all 0.36s linear;
+  transition: all 0.36s linear;
+}
+
+.no-trans {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: color 0 ease-in !important;
+  transition: none !important;
+}
