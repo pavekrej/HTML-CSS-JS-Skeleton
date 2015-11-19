@@ -51,7 +51,7 @@ include_once("application/languages/" . $language . ".lang.php");
         <link rel="stylesheet" href="assets/js/jquery/jquery-ui/jquery-ui.min.css">
         <link rel="stylesheet" href="assets/js/jquery/jquery-ui/jquery-ui.structure.min.css">
         <?php //Combine, compress, minify CSS - End ?>
-        <link rel="author" href="humans.txt" type="text/plain">
+        <link rel="author" type="text/plain" href="humans.txt">
 
         <!-- #JS assets -->
         <?php //Combine, compress, minify JS - Start ?>
@@ -114,7 +114,7 @@ include_once("application/languages/" . $language . ".lang.php");
 
         <link rel="canonical" href="http://www.domain.cz/">
         <!--[if gte IE 9]>
-        <style type="text/css">
+        <style>
             .gradient {
                 filter: none;
             }
@@ -122,7 +122,7 @@ include_once("application/languages/" . $language . ".lang.php");
         <![endif]-->
     </head>
     <body id="web-id" class="no-js <?php echo $language; ?>">
-        <script type='text/javascript'>
+        <script>
             //<![CDATA[
             document.body.className=document.body.className.replace(/no-js/,'js');
             document.body.className=document.body.className + " " + window.browser.to_string();
@@ -340,13 +340,13 @@ include_once("application/languages/" . $language . ".lang.php");
         </div>
 
         <?php //Combine, compress, minify JS - Start ?>
-        <script type="text/javascript" src="assets/frameworks/bootstrap-3.3.5/custom/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="assets/js/jquery/jquery-ui/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="assets/js/languages/<?php echo $language; ?>.lang.js"></script>
-        <script type="text/javascript" src="assets/js/main.js"></script>
+        <script src="assets/frameworks/bootstrap-3.3.5/custom/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery/jquery-ui/jquery-ui.min.js"></script>
+        <script src="assets/js/languages/<?php echo $language; ?>.lang.js"></script>
+        <script src="assets/js/main.js"></script>
         <?php //Combine, compress, minify JS - End ?>
 
-        <script type="text/javascript">
+        <script>
             //<![CDATA[
             $(document).ready(function () {
                 /* Show Main.js version */
