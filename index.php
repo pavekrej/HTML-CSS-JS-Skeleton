@@ -4,11 +4,10 @@
 
 Project:	  HTML skeleton
 Version:	  1.1
-Last change:  12. 11. 2015
+Last change:  19. 11. 2015
 Creator:	  Pavel Krejčí
 
 TODO:
-- LESS: Remake CSS to LESS
 - Browser detection: better JS plugin
 - Grunt: CSS/JS combine, compress, minify
 
@@ -26,13 +25,18 @@ CONFIGURATION:
 2. Generate icons over Real Favicon Generator: http://realfavicongenerator.net/
 */
 
-$isDebug = FALSE;
+$root = "";
+$language = "cs";
+$isDebug = TRUE;
 $domain = '';
+
+include_once("application/functions/global.func.php");
+include_once("application/languages/" . $language . ".lang.php");
 ?>
 <!DOCTYPE html>
-<!--[if lte IE 8 ]><html class="ie ie8 lte8 lte9 oldie" lang="cs"><![endif]-->
-<!--[if IE 9 ]><html class="ie ie9 lte9" lang="cs"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html class="not-ie" lang="cs"><!--<![endif]-->
+<!--[if lte IE 8 ]><html class="ie ie8 lte8 lte9 oldie" lang="<?php echo $language; ?>"><![endif]-->
+<!--[if IE 9 ]><html class="ie ie9 lte9" lang="<?php echo $language; ?>"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="not-ie" lang="<?php echo $language; ?>"><!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
@@ -43,10 +47,11 @@ $domain = '';
         <?php //Combine, compress, minify CSS - Start ?>
         <link rel="stylesheet" href="assets/frameworks/bootstrap-3.3.5/custom/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/frameworks/bootstrap-3.3.5/custom/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="assets/css/main<?php if($isDebug) { echo '.min'; } ?>.css">
+        <link rel="stylesheet" href="assets/css/main<?php if(!$isDebug) { echo '.min'; } ?>.css">
         <link rel="stylesheet" href="assets/js/jquery/jquery-ui/jquery-ui.min.css">
         <link rel="stylesheet" href="assets/js/jquery/jquery-ui/jquery-ui.structure.min.css">
         <?php //Combine, compress, minify CSS - End ?>
+        <link rel="author" href="humans.txt" type="text/plain">
 
         <!-- #JS assets -->
         <?php //Combine, compress, minify JS - Start ?>
@@ -116,7 +121,7 @@ $domain = '';
         </style>
         <![endif]-->
     </head>
-    <body id="web-id" class="no-js cs">
+    <body id="web-id" class="no-js <?php echo $language; ?>">
         <script type='text/javascript'>
             //<![CDATA[
             document.body.className=document.body.className.replace(/no-js/,'js');
@@ -130,13 +135,13 @@ $domain = '';
             <button type="button" class="close" data-dismiss="alert" aria-label="Zavřít">
                 <span aria-hidden="true">&times;</span>
             </button>
-            <strong>Máte zastaralý prohlížeč!</strong> Používáte zastaralou verzi internetového prohlížeče. Doporučujeme aktualizovat prohlížeč.
+            <strong><?php echo l("OLD_BROWSER"); ?></strong> <?php echo l("OLD_BROWSER_TEXT"); ?>
         </div>
         <![endif]-->
 
         <noscript>
             <div role="alert" class="alert alert-danger">
-                <strong>Máte vypnutý Javascript!</strong> Pro plnou funkcionalitu doporučujeme zapnout v prohlížeči Javascript.
+                <strong><?php echo l("JAVASCRIPT_OFF"); ?></strong> <?php echo l("JAVASCRIPT_OFF_TEXT"); ?>
             </div>
         </noscript>
 
@@ -337,8 +342,17 @@ $domain = '';
         <?php //Combine, compress, minify JS - Start ?>
         <script type="text/javascript" src="assets/frameworks/bootstrap-3.3.5/custom/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="assets/js/jquery/jquery-ui/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="assets/js/languages/cs.lang.js"></script>
+        <script type="text/javascript" src="assets/js/languages/<?php echo $language; ?>.lang.js"></script>
         <script type="text/javascript" src="assets/js/main.js"></script>
         <?php //Combine, compress, minify JS - End ?>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            $(document).ready(function () {
+                /* Show Main.js version */
+                PROJECT.default.showMainJsVersion();
+            });
+            //]]>
+        </script>
     </body>
 </html>

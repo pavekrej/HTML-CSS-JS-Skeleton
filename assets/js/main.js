@@ -18,17 +18,12 @@ PROJECT.default = (function ($) {
             console.log(lang.VERSION);
 
             PROJECT.default.scrollTop();
-            PROJECT.default.lightboxInit();
             return true;
         },
 
-        /* Init Fancybox */
-        lightboxInit: function () {
-            if($('.lightbox').length > 0) {
-                $('.lightbox').fancybox({
-                    'titleShow': false
-                });
-            }
+        /* Show Main.js version */
+        showMainJsVersion: function () {
+            console.log(lang.VERSION);
         },
 
         /* Scroll to top */
