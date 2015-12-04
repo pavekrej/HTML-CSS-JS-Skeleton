@@ -18,7 +18,6 @@ PROJECT.default = (function ($) {
             if(DEBUG) {
                 console.log(lang.VERSION);
             }
-
             PROJECT.default.scrollTop();
             return true;
         },
@@ -35,6 +34,45 @@ PROJECT.default = (function ($) {
                 return false;
             });
             return true;
+        },
+
+        /* Init Fancybox */
+        initLightbox: function () {
+            if($('.lightbox').length > 0) {
+                $('a[data-fancybox-group]').each(function() {
+                    $(this).attr('rel', $(this).data('fancybox-group'));
+                });
+
+                $('.lightbox').fancybox({
+                    'titleShow': false,
+                    'padding': 0
+                });
+            }
+        },
+
+        /* Init tooltips */
+        initTooltips: function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        },
+
+        /* Init carousel */
+        initCarousel: function (element) {
+            if($(element).length > 0) {
+                $(element).owlCarousel({
+                    navigation: true,
+                    slideSpeed: 1200,
+                    paginationSpeed: 400,
+                    singleItem: true,
+                    items: 1,
+                    loop: true,
+                    margin: 0,
+                    nav: true,
+                    navText: ["<span class='glyphicon glyphicon-menu-left'></span>", "<span class='glyphicon glyphicon-menu-right'></span>"],
+                    autoplay: false,
+                    autoplayTimeout: 5000,
+                    autoplayHoverPause: true
+                });
+            }
         }
     };
 }(jQuery));
