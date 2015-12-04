@@ -33,6 +33,23 @@ $domain = '';
 
 include_once("application/functions/global.func.php");
 include_once("application/languages/" . $language . ".lang.php");
+
+
+$pageTitle = "Homepage";
+$thisPage = "";
+
+if(isset($_GET['page'])) {
+    $thisPage = urlencode($_GET['page']);
+}
+$pagesArray = array(
+    "homepage" => array("pageTitle" => "Homepage"),
+    "blank" => array("pageTitle" => "Blank page")
+);
+if(array_key_exists($thisPage, $pagesArray)) {
+    $pageTitle = $pagesArray[$thisPage]['pageTitle'];
+} else {
+    $thisPage = 'Homepage';
+}
 ?>
 <!DOCTYPE html>
 <!--[if lte IE 8 ]><html class="ie ie8 lte8 lte9 oldie" lang="<?php echo $language; ?>"><![endif]-->
@@ -42,7 +59,7 @@ include_once("application/languages/" . $language . ".lang.php");
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>HTML/CSS/JS Skeleton | December 2015 | Pavel Krejčí</title>
+        <title>HTML/CSS/JS Skeleton | December 2015 | Pavel Krejčí | <?php print $pageTitle; ?></title>
 
         <!-- #CSS assets -->
         <?php //Combine, compress, minify CSS - Start ?>
@@ -176,10 +193,8 @@ include_once("application/languages/" . $language . ".lang.php");
                                         </div>
                                         <div id="navbar-main" class="collapse navbar-collapse">
                                             <ul class="nav navbar-nav">
-                                                <li class="active"><a href="#" title="Homepage">Homepage</a></li>
-                                                <li><a href="#" title="Link">Link</a></li>
-                                                <li><a href="#" title="Link">Link</a></li>
-                                                <li><a href="#" title="Link">Link</a></li>
+                                                <li<?php if((isset($_GET['page']) && $_GET['page'] == 'homepage') || (!isset($_GET['page'])) || (isset($_GET['page']) && $_GET['page'] == '')) { ?> class="active"<?php } ?>><a href="?page=homepage" title="Homepage">Homepage</a></li>
+                                                <li<?php if(isset($_GET['page']) && $_GET['page'] == 'blank') { ?> class="active"<?php } ?>><a href="?page=blank" title="Link">Link</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -190,119 +205,7 @@ include_once("application/languages/" . $language . ".lang.php");
                 </div>
             </header>
             <!-- #Content -->
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-8 col-md-9">
-                            <!-- #Main content -->
-                            <section class="main-content clearfix">
-                                <h1>H1 page title <small>Subtitle</small></h1>
-                                <p>Lorem Ipsum is simply dummy text of the printing and <a href="#" title="">typesetting industry</a>.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and scrambled it to make a type
-                                    specimen book.</p>
-                                <h2>H2 page title</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and <a href="#" title="">typesetting industry</a>.</p>
-                                <h3>H3 page title</h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and <a href="#" title="">typesetting industry</a>.</p>
-                                <h4>H4 page title</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and <a href="#" title="">typesetting industry</a>.</p>
-                                <h5>H5 page title</h5>
-                                <p>Lorem Ipsum is simply dummy text of the printing and <a href="#" title="">typesetting industry</a>.</p>
-                                <h6>H6 page title</h6>
-                                <p>Lorem Ipsum is simply dummy text of the printing and <a href="#" title="">typesetting industry</a>.</p>
-                                <h2>H2 page title</h2>
-                                <ul>
-                                    <li>Lorem Ipsum is simply dummy text of the printing</li>
-                                    <li>Lorem Ipsum is simply</li>
-                                    <li>Lorem Ipsum is simply dummy text of the printing</li>
-                                </ul>
-                                <hr />
-                                <h2>H2 page title</h2>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Heading</th>
-                                            <th>Heading</th>
-                                            <th>Heading</th>
-                                            <th>Heading</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                            <td>Item</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </section>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 col-md-3">
-                            <!-- #Sidebar -->
-                            <aside class="sidebar">
-                                <!-- #Widget -->
-                                <div class="widget widget-1">
-                                    <h3>Widget</h3>
-                                    <div class="widget-content">
-                                        <p><strong>Widget content</strong></p>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                            when an unknown printer took a galley of type and scrambled it to make a type
-                                            specimen book.</p>
-                                    </div>
-                                </div>
-                                <!-- #Widget -->
-                                <div class="widget widget-2">
-                                    <h3>Widget</h3>
-                                    <div class="widget-content">
-                                        <ul>
-                                            <li><a href="" title="">Lorem Ipsum is simply dummy text</a></li>
-                                            <li><a href="" title="">Lorem Ipsum is simply dummy text</a></li>
-                                            <li><a href="" title="">Lorem Ipsum is simply dummy text</a></li>
-                                            <li><a href="" title="">Lorem Ipsum is simply dummy text</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- #Widget -->
-                                <div class="widget widget-3">
-                                    <h3>Widget</h3>
-                                    <div class="widget-content">
-                                        <p><strong>Widget content</strong></p>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                </div>
-                            </aside>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php include "pages/".$thisPage.".php"; ?>
             <!-- #Footer -->
             <footer class="footer container-full">
                 <div class="container">
