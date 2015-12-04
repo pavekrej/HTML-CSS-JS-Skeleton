@@ -114,6 +114,7 @@ body {
   border-radius: 0px;
   border-width: 0px;
   color: #fff;
+  filter: none;
   &.alert-dismissible {
     padding-right: 35px;
     button {
@@ -139,9 +140,16 @@ body {
     border-color: #24a528;
   }
   & > button {
+    &.close {
+      top: -2px !important;
+    }
     color: #ffffff !important;
     .opacity(0.7);
     text-shadow: none;
+    float: right;
+    background: none;
+    border: none;
+    font-size: 18px;
     &:hover {
       .opacity(1);
     }

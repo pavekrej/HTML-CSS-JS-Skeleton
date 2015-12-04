@@ -195,6 +195,7 @@ body .container {
   border-radius: 0px;
   border-width: 0px;
   color: #fff;
+  filter: none;
 }
 .alert.alert-dismissible {
   padding-right: 35px;
@@ -227,6 +228,13 @@ body .container {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
   filter: alpha(opacity=70);
   text-shadow: none;
+  float: right;
+  background: none;
+  border: none;
+  font-size: 18px;
+}
+.alert > button.close {
+  top: -2px !important;
 }
 .alert > button:hover {
   -moz-opacity: 1;
