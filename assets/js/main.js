@@ -3,8 +3,8 @@
 
 Project:	  JS functions
 Version:	  1.1
-Last change:  9. 11. 2015
-Creator:	  Pavel Krejčí
+Last change:  4. 12. 2015
+Creator:	  Pavel Krejci DELAMWEBY.cz © 2015
 
 */
 
@@ -15,7 +15,9 @@ PROJECT.default = (function ($) {
 
     return {
         init: function () {
-            console.log(lang.VERSION);
+            if(DEBUG) {
+                console.log(lang.VERSION);
+            }
 
             PROJECT.default.scrollTop();
             return true;
@@ -41,5 +43,3 @@ jQuery(document).ready(function () {
     'use strict';
     PROJECT.default.init();
 });
-
-

@@ -2,15 +2,15 @@
 [Main Stylesheet]
 
 Project:	  CSS template - Main
-Version:	  1.0
-Last change:  19. 11. 2015
-Creator:	  Pavel Krejčí
+Version:	  1.1
+Last change:  4. 12. 2015
+Creator:	  Pavel Krejci DELAMWEBY.cz © 2015
 -------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------
 [Layout CSS]
 * body
-    + Global / body (Utilities, Global, Alerts)
+    + Global / body (Utilities, Variables, Global, Alerts)
     + Header / .header (Header, Main menu)
     + Content / .content (Content RAW, Content, Sidebar)
         - Content RAW / .content-raw
@@ -28,6 +28,10 @@ Creator:	  Pavel Krejčí
 /* Utilities */
 @import 'utilities.less';
 
+/* Variables */
+@base-color : #111;
+@link-color : #000;
+
 /* Global */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
@@ -42,7 +46,6 @@ Creator:	  Pavel Krejčí
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face {
     font-family: 'mramor_cebold';
     src: url('../fonts/mramorce-bold/mramorce-bold-webfont.eot');
@@ -62,23 +65,23 @@ body {
 
 body {
   font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-  color: #000;
-
+  color: @base-color;
   a {
-    color: #000;
+    color: @link-color;
     &:hover,
     &:focus,
     &:active {
-      color: #000;
+      color: @link-color;
     }
   }
-
-  ::selection,
+  ::selection {
+    background: #6f5499;
+    color: #fff;
+  }
   ::-moz-selection {
     background: #6f5499;
     color: #fff;
   }
-
   input:-moz-placeholder,
   textarea:-moz-placeholder,
   input:-ms-input-placeholder,
@@ -87,24 +90,20 @@ body {
   textarea::-webkit-input-placeholder {
     color: #999;
   }
-
   input,
   textarea,
   a.btn,
   button {
     outline: none !important;
   }
-
   .web-wrapper {
     min-height: 100%;
     position: relative;
   }
-
   .container-full {
     margin: 0 auto;
     width: 100%;
   }
-
   .container {
     max-width: 1120px;
   }
@@ -117,7 +116,6 @@ body {
   border-radius: 0px;
   border-width: 0px;
   color: #fff;
-
   &.alert-dismissible {
     padding-right: 35px;
     button {
@@ -126,43 +124,31 @@ body {
       }
     }
   }
-
   &.alert-warning {
     background: #ff851b;
     border-color: #ff7701;
   }
-
   &.alert-danger {
     background: #ff4136;
     border-color: #ff1103;
   }
-
   &.alert-info {
     background: #75caeb;
     border-color: #40b5e3;
   }
-
   &.alert-success {
     background: #28b62c;
     border-color: #24a528;
   }
-
   & > button {
     color: #ffffff !important;
-    opacity: 0.7;
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-    filter: alpha(opacity=70);
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+    .opacity(0.7);
     text-shadow: none;
     &:hover {
-      opacity: 1;
-      -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-      filter: alpha(opacity=100);
-      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+      .opacity(1);
     }
   }
 }
-
 .no-js {
   .alert {
     button {
@@ -171,21 +157,6 @@ body {
       }
     }
   }
-}
-
-/*------------------------------------------------------------------
-[Global / global] Responsive
-*/
-@media screen and (max-width: 1199px) {
-}
-
-@media screen and (max-width: 991px) {
-}
-
-@media screen and (max-width: 767px) {
-}
-
-@media screen and (max-width: 479px) {
 }
 
 
@@ -208,21 +179,6 @@ body {
   }
 }
 
-/*------------------------------------------------------------------
-[Header / header] Responsive
-*/
-@media screen and (max-width: 1199px) {
-}
-
-@media screen and (max-width: 991px) {
-}
-
-@media screen and (max-width: 767px) {
-}
-
-@media screen and (max-width: 479px) {
-}
-
 
 /*------------------------------------------------------------------
 [Content / div.content]
@@ -230,8 +186,7 @@ body {
 
 /* Content RAW */
 .content-raw {
-  color: #000;
-
+  color: @base-color;
   img {
     margin: 5px 0 15px;
     &.left {
@@ -241,28 +196,20 @@ body {
       margin: 5px 0px 15px 20px;
     }
     &:hover {
-      opacity: 0.9;
-      -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
-      filter: alpha(opacity=90);
-      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+      .opacity(0.9);
     }
   }
-
   hr {
     border-width: 2px 0 0;
     border-color: #ececec;
   }
-
   h2 {
     font-weight: 700;
   }
-
   h3 {
   }
-
   h4 {
   }
-
   h1:first-child,
   h2:first-child,
   h3:first-child,
@@ -271,7 +218,6 @@ body {
   h6:first-child {
     margin-top: 0px;
   }
-
   ul {
     margin: 0px 0 10px 0;
     padding: 0px;
@@ -287,12 +233,10 @@ body {
       }
     }
   }
-
   ol {
     margin: 0px;
     padding: 0px;
   }
-
   table {
     width: 100%;
     margin: 10px 0 10px 0;
@@ -311,7 +255,6 @@ body {
       }
     }
   }
-
   address {
     margin-bottom: 0px;
   }
@@ -377,26 +320,10 @@ body {
   }
 }
 
-/*------------------------------------------------------------------
-[Footer / footer] Responsive
-*/
-@media screen and (max-width: 1199px) {
-}
-
-@media screen and (max-width: 991px) {
-}
-
-@media screen and (max-width: 767px) {
-}
-
-@media screen and (max-width: 479px) {
-}
-
 
 /*------------------------------------------------------------------
 [Others]
 */
-
 /* Fancybox */
 #fancybox-wrap,
 #fancybox-wrap *,
@@ -411,7 +338,6 @@ body {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
-
 #fancybox-close {
   top: 20px;
   right: 20px;

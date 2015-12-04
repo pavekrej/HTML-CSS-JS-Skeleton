@@ -4,7 +4,7 @@
 
 Project:	  HTML skeleton
 Version:	  1.1
-Last change:  19. 11. 2015
+Last change:  4. 12. 2015
 Creator:	  Pavel Krejčí
 
 TODO:
@@ -19,6 +19,7 @@ Facebook Open Graph: https://developers.facebook.com/docs/sharing/opengraph
 Twitter Cards: https://dev.twitter.com/cards/markup
 W3C validator: https://validator.w3.org/
 W3C CSS validator: https://jigsaw.w3.org/css-validator/
+Font Awesome: https://fortawesome.github.io/Font-Awesome/
 
 CONFIGURATION:
 1. Customize and download Twitter Bootstrap (http://getbootstrap.com/customize/)
@@ -27,7 +28,7 @@ CONFIGURATION:
 
 $root = "";
 $language = "cs";
-$isDebug = TRUE;
+$isDebug = true;
 $domain = '';
 
 include_once("application/functions/global.func.php");
@@ -41,12 +42,17 @@ include_once("application/languages/" . $language . ".lang.php");
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>HTML/CSS/JS Skeleton | November 2015 | Pavel Krejčí</title>
+        <title>HTML/CSS/JS Skeleton | December 2015 | Pavel Krejčí</title>
 
         <!-- #CSS assets -->
         <?php //Combine, compress, minify CSS - Start ?>
         <link rel="stylesheet" href="assets/frameworks/bootstrap-3.3.5/custom/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/frameworks/bootstrap-3.3.5/custom/css/bootstrap-theme.min.css">
+        <?php //Custom - Start ?>
+            <link rel="stylesheet" href="assets/fonts/font-awesome-4.5.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.fancybox-1.3.4.css">
+            <link rel="stylesheet" href="assets/js/jquery/plugins/owl.carousel.2.0.0-beta.2.4/assets/owl.carousel.css">
+        <?php //Custom - End ?>
         <link rel="stylesheet" href="assets/css/main<?php if(!$isDebug) { echo '.min'; } ?>.css">
         <link rel="stylesheet" href="assets/js/jquery/jquery-ui/jquery-ui.min.css">
         <link rel="stylesheet" href="assets/js/jquery/jquery-ui/jquery-ui.structure.min.css">
@@ -79,9 +85,9 @@ include_once("application/languages/" . $language . ".lang.php");
 
         <!-- #Facebook Open Graph -->
         <meta property="og:type" content="website">
-        <meta property="og:url" content="http://www.domenawebu.cz/">
+        <meta property="og:url" content="http://www.delamweby.cz/">
         <meta property="og:title" content="H1 Page title">
-        <meta property="og:site_name" content="HTML/CSS/JS Skeleton | November 2015 | Pavel Krejčí">
+        <meta property="og:site_name" content="HTML/CSS/JS Skeleton | December 2015 | Pavel Krejčí">
         <meta property="og:description" content="Description">
         <meta property="og:image" content="/assets/images/fb-image-1500x1500.png">
 
@@ -112,7 +118,7 @@ include_once("application/languages/" . $language . ".lang.php");
         <meta name="msapplication-TileImage" content="/mstile-144x144.png">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="canonical" href="http://www.domain.cz/">
+        <link rel="canonical" href="http://www.delamweby.cz/">
         <!--[if gte IE 9]>
         <style>
             .gradient {
@@ -121,7 +127,7 @@ include_once("application/languages/" . $language . ".lang.php");
         </style>
         <![endif]-->
     </head>
-    <body id="web-id" class="no-js <?php echo $language; ?>">
+    <body id="web-delamweby-id" class="no-js <?php echo $language; ?>">
         <script>
             //<![CDATA[
             document.body.className=document.body.className.replace(/no-js/,'js');
@@ -146,7 +152,6 @@ include_once("application/languages/" . $language . ".lang.php");
         </noscript>
 
         <div class="web-wrapper">
-
             <!-- #Header -->
             <header class="header container-full" id="top">
                 <div class="container">
@@ -184,13 +189,11 @@ include_once("application/languages/" . $language . ".lang.php");
                     </div>
                 </div>
             </header>
-
             <!-- #Content -->
             <div class="content">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12 col-sm-8 col-md-9">
-
                             <!-- #Main content -->
                             <section class="main-content clearfix">
                                 <h1>H1 page title <small>Subtitle</small></h1>
@@ -260,13 +263,10 @@ include_once("application/languages/" . $language . ".lang.php");
                                     </tbody>
                                 </table>
                             </section>
-
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-3">
-
                             <!-- #Sidebar -->
                             <aside class="sidebar">
-
                                 <!-- #Widget -->
                                 <div class="widget widget-1">
                                     <h3>Widget</h3>
@@ -278,7 +278,6 @@ include_once("application/languages/" . $language . ".lang.php");
                                             specimen book.</p>
                                     </div>
                                 </div>
-
                                 <!-- #Widget -->
                                 <div class="widget widget-2">
                                     <h3>Widget</h3>
@@ -291,7 +290,6 @@ include_once("application/languages/" . $language . ".lang.php");
                                         </ul>
                                     </div>
                                 </div>
-
                                 <!-- #Widget -->
                                 <div class="widget widget-3">
                                     <h3>Widget</h3>
@@ -301,12 +299,10 @@ include_once("application/languages/" . $language . ".lang.php");
                                     </div>
                                 </div>
                             </aside>
-
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- #Footer -->
             <footer class="footer container-full">
                 <div class="container">
@@ -316,8 +312,8 @@ include_once("application/languages/" . $language . ".lang.php");
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-5">
                                         <div class="text clearfix">
-                                            <img class="logo" src="assets/images/bg-footer-logo.png" alt="Domain.com">
-                                            <strong>Domain.com</strong> ©&nbsp;2015
+                                            <img class="logo" src="assets/images/bg-footer-logo.png" alt="Delamweby.cz">
+                                            <strong>Delamweby.cz</strong> ©&nbsp;2015
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-7">
@@ -336,23 +332,31 @@ include_once("application/languages/" . $language . ".lang.php");
                     </div>
                 </div>
             </footer>
-
         </div>
 
         <?php //Combine, compress, minify JS - Start ?>
+        <script>var DEBUG = <?php echo $isDebug; ?>;</script>
         <script src="assets/frameworks/bootstrap-3.3.5/custom/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery/jquery-ui/jquery-ui.min.js"></script>
         <script src="assets/js/languages/<?php echo $language; ?>.lang.js"></script>
+            <?php //Custom - Start ?>
+            <script src="assets/js/jquery/plugins/owl.carousel.2.0.0-beta.2.4/owl.carousel.min.js"></script>
+            <script src="assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.fancybox-1.3.4.patch.js"></script>
+            <script src="assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.easing-1.3.pack.js"></script>
+            <script src="assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.mousewheel-3.0.4.pack.js"></script>
+            <?php //Custom - End ?>
         <script src="assets/js/main.js"></script>
         <?php //Combine, compress, minify JS - End ?>
 
+        <?php if($isDebug) { ?>
         <script>
             //<![CDATA[
-            $(document).ready(function () {
+            jQuery(document).ready(function () {
                 /* Show Main.js version */
                 PROJECT.default.showMainJsVersion();
             });
             //]]>
         </script>
+        <?php } ?>
     </body>
 </html>

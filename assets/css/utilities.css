@@ -3,8 +3,8 @@
 
 Project:	  CSS template - Utilities
 Version:	  1.1
-Last change:  19. 11. 2015
-Creator:	  Pavel Krejci
+Last change:  4. 12. 2015
+Creator:	  Pavel Krejci DELAMWEBY.cz © 2015
 -------------------------------------------------------------------*/
 /*------------------------------------------------------------------
 [Utilities CSS]
@@ -44,6 +44,12 @@ img {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.hide {
+  display: none;
+}
+.invisible {
+  visibility: hidden;
+}
 .ie *:focus {
   outline: none !important;
 }
@@ -82,3 +88,4 @@ img {
   -o-transition: color 0 ease-in !important;
   transition: none !important;
 }
+/* Mixins */
