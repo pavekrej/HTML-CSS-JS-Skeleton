@@ -193,8 +193,8 @@ if(array_key_exists($thisPage, $pagesArray)) {
                                         </div>
                                         <div id="navbar-main" class="collapse navbar-collapse">
                                             <ul class="nav navbar-nav">
-                                                <li<?php if((isset($_GET['page']) && $_GET['page'] == 'homepage') || (!isset($_GET['page'])) || (isset($_GET['page']) && $_GET['page'] == '')) { ?> class="active"<?php } ?>><a href="?page=homepage" title="Homepage">Homepage</a></li>
-                                                <li<?php if(isset($_GET['page']) && $_GET['page'] == 'blank') { ?> class="active"<?php } ?>><a href="?page=blank" title="Link">Link</a></li>
+                                                <li<?php if((isset($thisPage) && $thisPage == 'homepage') || (!isset($thisPage)) || (isset($thisPage) && $thisPage == '')) { ?> class="active"<?php } ?>><a href="?page=homepage" title="Homepage">Homepage</a></li>
+                                                <li<?php if(isset($thisPage) && $thisPage == 'blank') { ?> class="active"<?php } ?>><a href="?page=blank" title="Link">Link</a></li>
                                             </ul>
                                         </div>
                                     </div>
