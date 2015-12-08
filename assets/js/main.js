@@ -18,6 +18,7 @@ PROJECT.default = (function ($) {
             if(DEBUG) {
                 console.log(lang.VERSION);
             }
+            FastClick.attach(document.body);
             PROJECT.default.scrollTop();
             return true;
         },

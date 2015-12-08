@@ -254,6 +254,7 @@ switch($url) {
             <script src="assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.fancybox-1.3.4.patch.js"></script>
             <script src="assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.easing-1.3.pack.js"></script>
             <script src="assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.mousewheel-3.0.4.pack.js"></script>
+            <script src="assets/js/jquery/plugins/fast-click/fastclick.min.js"></script>
             <?php //Custom - End ?>
         <script src="assets/js/main.js"></script>
         <?php //Combine, compress, minify JS - End ?>
