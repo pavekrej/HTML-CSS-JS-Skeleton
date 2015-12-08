@@ -3,7 +3,7 @@
 
 Project:	  CSS template - Main
 Version:	  1.1
-Last change:  4. 12. 2015
+Last change:  8. 12. 2015
 Creator:	  Pavel Krejci DELAMWEBY.cz © 2015
 -------------------------------------------------------------------*/
 /*------------------------------------------------------------------
@@ -272,9 +272,11 @@ body .container {
 }
 .content-raw img.left {
   margin: 5px 20px 15px 0;
+  float: left;
 }
 .content-raw img.right {
   margin: 5px 0px 15px 20px;
+  float: right;
 }
 .content-raw img:hover {
   -moz-opacity: 0.9;

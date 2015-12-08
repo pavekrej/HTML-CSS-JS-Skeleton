@@ -10,6 +10,7 @@ Creator:	  Pavel Krejčí
 TODO:
 - Browser detection: better JS plugin
 - Grunt: CSS/JS combine, compress, minify
+- CSS: REM fonts
 
 UTILITIES:
 Twitter Bootstrap: http://getbootstrap.com/
@@ -34,21 +35,26 @@ $domain = '';
 include_once("application/functions/global.func.php");
 include_once("application/languages/" . $language . ".lang.php");
 
-
-$pageTitle = "Homepage";
-$thisPage = "";
-
+$url = '';
 if(isset($_GET['page'])) {
-    $thisPage = urlencode($_GET['page']);
+    $url = urlencode($_GET['page']);
 }
-$pagesArray = array(
-    "homepage" => array("pageTitle" => "Homepage"),
-    "blank" => array("pageTitle" => "Blank page")
-);
-if(array_key_exists($thisPage, $pagesArray)) {
-    $pageTitle = $pagesArray[$thisPage]['pageTitle'];
-} else {
-    $thisPage = 'Homepage';
+switch($url) {
+    case 'homepage':
+        $page = 'homepage';
+        $title = 'Homepage';
+        break;
+    case 'content-raw':
+        $page = 'content-raw';
+        $title = 'Content RAW';
+        break;
+    case 'blank':
+        $page = 'blank';
+        $title = 'Blank';
+        break;
+    default:
+        $page = 'homepage';
+        $title = 'Homepage';
 }
 ?>
 <!DOCTYPE html>
@@ -59,7 +65,7 @@ if(array_key_exists($thisPage, $pagesArray)) {
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>HTML/CSS/JS Skeleton | December 2015 | Pavel Krejčí | <?php print $pageTitle; ?></title>
+        <title>HTML/CSS/JS Skeleton | December 2015 | Pavel Krejčí | <?php print $title; ?></title>
 
         <!-- #CSS assets -->
         <?php //Combine, compress, minify CSS - Start ?>
@@ -155,7 +161,7 @@ if(array_key_exists($thisPage, $pagesArray)) {
         <!-- #Flash messages -->
         <!--[if lte IE 8]>
         <div role="alert" class="alert alert-warning alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Zavřít">
+            <button type="button" class="close" data-dismiss="alert" aria-label="<?php echo l("CLOSE"); ?>">
                 <span aria-hidden="true">&times;</span>
             </button>
             <strong><?php echo l("OLD_BROWSER"); ?></strong> <?php echo l("OLD_BROWSER_TEXT"); ?>
@@ -193,8 +199,9 @@ if(array_key_exists($thisPage, $pagesArray)) {
                                         </div>
                                         <div id="navbar-main" class="collapse navbar-collapse">
                                             <ul class="nav navbar-nav">
-                                                <li<?php if((isset($thisPage) && $thisPage == 'homepage') || (!isset($thisPage)) || (isset($thisPage) && $thisPage == '')) { ?> class="active"<?php } ?>><a href="?page=homepage" title="Homepage">Homepage</a></li>
-                                                <li<?php if(isset($thisPage) && $thisPage == 'blank') { ?> class="active"<?php } ?>><a href="?page=blank" title="Link">Link</a></li>
+                                                <li<?php if((isset($page) && $page == 'homepage') || (!isset($page)) || (isset($page) && $page == '')) { ?> class="active"<?php } ?>><a href="?page=homepage" title="Homepage">Homepage</a></li>
+                                                <li<?php if(isset($page) && $page == 'content-raw') { ?> class="active"<?php } ?>><a href="?page=content-raw" title="Content RAW">Content RAW</a></li>
+                                                <li<?php if(isset($page) && $page == 'blank') { ?> class="active"<?php } ?>><a href="?page=blank" title="Blank">Blank</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -205,7 +212,7 @@ if(array_key_exists($thisPage, $pagesArray)) {
                 </div>
             </header>
             <!-- #Content -->
-            <?php include "pages/".$thisPage.".php"; ?>
+            <?php include "pages/" . $page . ".php"; ?>
             <!-- #Footer -->
             <footer class="footer container-full">
                 <div class="container">

@@ -59,14 +59,11 @@ PROJECT.default = (function ($) {
         initCarousel: function (element) {
             if($(element).length > 0) {
                 $(element).owlCarousel({
-                    navigation: true,
-                    slideSpeed: 1200,
-                    paginationSpeed: 400,
-                    singleItem: true,
                     items: 1,
                     loop: true,
                     margin: 0,
                     nav: true,
+                    navSpeed: 1200,
                     navText: ["<span class='glyphicon glyphicon-menu-left'></span>", "<span class='glyphicon glyphicon-menu-right'></span>"],
                     autoplay: false,
                     autoplayTimeout: 5000,
