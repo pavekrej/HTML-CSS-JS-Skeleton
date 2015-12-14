@@ -69,30 +69,30 @@ switch($url) {
 
         <!-- #CSS assets -->
         <?php //Combine, compress, minify CSS - Start ?>
-        <link rel="stylesheet" href="assets/frameworks/bootstrap-3.3.5/custom/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/frameworks/bootstrap-3.3.5/custom/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/assets/frameworks/bootstrap-3.3.5/custom/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/frameworks/bootstrap-3.3.5/custom/css/bootstrap-theme.min.css">
         <?php //Custom - Start ?>
-            <link rel="stylesheet" href="assets/fonts/font-awesome-4.5.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.fancybox-1.3.4.css">
-            <link rel="stylesheet" href="assets/js/jquery/plugins/owl.carousel.2.0.0-beta.2.4/assets/owl.carousel.css">
+            <link rel="stylesheet" href="/assets/fonts/font-awesome-4.5.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="/assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.fancybox-1.3.4.css">
+            <link rel="stylesheet" href="/assets/js/jquery/plugins/owl.carousel.2.0.0-beta.2.4/assets/owl.carousel.css">
         <?php //Custom - End ?>
-        <link rel="stylesheet" href="assets/css/main<?php if(!$isDebug) { echo '.min'; } ?>.css">
-        <link rel="stylesheet" href="assets/js/jquery/jquery-ui/jquery-ui.min.css">
-        <link rel="stylesheet" href="assets/js/jquery/jquery-ui/jquery-ui.structure.min.css">
+        <link rel="stylesheet" href="/assets/css/main<?php if(!$isDebug) { echo '.min'; } ?>.css">
+        <link rel="stylesheet" href="/assets/js/jquery/jquery-ui/jquery-ui.min.css">
+        <link rel="stylesheet" href="/assets/js/jquery/jquery-ui/jquery-ui.structure.min.css">
         <?php //Combine, compress, minify CSS - End ?>
-        <link rel="author" type="text/plain" href="humans.txt">
+        <link rel="author" type="text/plain" href="/humans.txt">
 
         <!-- #JS assets -->
         <?php //Combine, compress, minify JS - Start ?>
-        <script src="assets/js/plugins/browser-detection.min.js"></script>
-        <script src="assets/js/jquery/jquery-1.11.3.min.js"></script>
-        <script src="assets/js/jquery/plugins/jquery.browser.plugin/jquery.browser.min.js"></script>
+        <script src="/assets/js/plugins/browser-detection.min.js"></script>
+        <script src="/assets/js/jquery/jquery-1.11.3.min.js"></script>
+        <script src="/assets/js/jquery/plugins/jquery.browser.plugin/jquery.browser.min.js"></script>
         <?php //Combine, compress, minify JS - End ?>
 
         <?php //Combine, compress, minify JS - Start ?>
         <!--[if lt IE 9]>
-        <script src="assets/js/plugins/html5shiv.min.js"></script>
-        <script src="assets/js/plugins/respond.min.js"></script>
+        <script src="/assets/js/plugins/html5shiv.min.js"></script>
+        <script src="/assets/js/plugins/respond.min.js"></script>
         <![endif]-->
         <?php //Combine, compress, minify JS - End ?>
 
@@ -183,7 +183,7 @@ switch($url) {
                             <div class="header-content clearfix">
                                 <!-- #Logo -->
                                 <a class="logo" href="#name" title="Name">
-                                    <img class="img-responsive" src="assets/images/bg-header-logo.png" alt="Name">
+                                    <img class="img-responsive" src="/assets/images/bg-header-logo.png" alt="Name">
                                 </a>
                                 <!-- #Main menu -->
                                 <nav class="navbar navbar-default">
@@ -222,7 +222,7 @@ switch($url) {
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-5">
                                         <div class="text clearfix">
-                                            <img class="logo" src="assets/images/bg-footer-logo.png" alt="Delamweby.cz">
+                                            <img class="logo" src="/assets/images/bg-footer-logo.png" alt="Delamweby.cz">
                                             <strong>Delamweby.cz</strong> ©&nbsp;2015
                                         </div>
                                     </div>
@@ -246,17 +246,17 @@ switch($url) {
 
         <?php //Combine, compress, minify JS - Start ?>
         <script>var DEBUG = <?php echo $isDebug; ?>;</script>
-        <script src="assets/frameworks/bootstrap-3.3.5/custom/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery/jquery-ui/jquery-ui.min.js"></script>
-        <script src="assets/js/languages/<?php echo $language; ?>.lang.js"></script>
+        <script src="/assets/frameworks/bootstrap-3.3.5/custom/js/bootstrap.min.js"></script>
+        <script src="/assets/js/jquery/jquery-ui/jquery-ui.min.js"></script>
+        <script src="/assets/js/languages/<?php echo $language; ?>.lang.js"></script>
             <?php //Custom - Start ?>
-            <script src="assets/js/jquery/plugins/owl.carousel.2.0.0-beta.2.4/owl.carousel.min.js"></script>
-            <script src="assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.fancybox-1.3.4.patch.js"></script>
-            <script src="assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.easing-1.3.pack.js"></script>
-            <script src="assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.mousewheel-3.0.4.pack.js"></script>
-            <script src="assets/js/jquery/plugins/fast-click/fastclick.min.js"></script>
+            <script src="/assets/js/jquery/plugins/owl.carousel.2.0.0-beta.2.4/owl.carousel.min.js"></script>
+            <script src="/assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.fancybox-1.3.4.patch.js"></script>
+            <script src="/assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.easing-1.3.pack.js"></script>
+            <script src="/assets/js/jquery/plugins/jquery.fancybox.1.3.4/jquery.mousewheel-3.0.4.pack.js"></script>
+            <script src="/assets/js/jquery/plugins/fast-click/fastclick.min.js"></script>
             <?php //Custom - End ?>
-        <script src="assets/js/main.js"></script>
+        <script src="/assets/js/main.js"></script>
         <?php //Combine, compress, minify JS - End ?>
 
         <?php if($isDebug) { ?>
